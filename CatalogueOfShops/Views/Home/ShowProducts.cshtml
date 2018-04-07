@@ -1,0 +1,19 @@
+﻿@model IEnumerable<CatalogueOfShops.Models.Product>
+
+<div>
+    <table align="center" width="60%">
+        <thead>
+            <tr>
+                <td align="center" width="30%"><h3>Product</h3></td>
+                <td align="center" width="70%"><h3>Description</h3></td>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td >@item.NameOfProduct</td>
+                <td >@item.Description</td>
+            </tr>
+        }
+    </table>
+</div>

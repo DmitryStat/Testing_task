@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Catalogue of shops</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <style>
+        .prod {
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="prod">
+        <table align="center" width="60%">
+            <thead>
+                <tr>
+                    <td align="center" width="15%"><p><h3>Name of shop</h3></p></td>
+                    <td align="center" width="15%"><p><h3>Address</h3></p></td>
+                    <td align="center" width="15%"><p><h3>Work regime</h3></p></td>
+                    <td align="center" width="15%"></td>
+                </tr>
+            </thead>
+            @foreach (var shop in ViewBag.Shops)
+            {
+                <tr>
+                    <td><div>@shop.NameOfShop</div></td>
+                    <td><p>@shop.Address</p></td>
+                    <td><p>@shop.WorkRegime</p></td>
+                    <td>@Ajax.ActionLink("Products", "ShowProducts", new { id = shop.Id }, new AjaxOptions { UpdateTargetId="results" }) </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="prod" id="results"></div>
+</body>
+</html>
